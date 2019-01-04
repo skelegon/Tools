@@ -17,16 +17,13 @@
                   <AnchorPane prefHeight="60.0" prefWidth="600.0">
                      <children>
                         <Label layoutX="14.0" layoutY="24.0" text="Directory" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="24.0" />
-                        <Button onAction ="#onBrowseDirectoryAction" layoutX="76.0" layoutY="17.0" mnemonicParsing="false" prefWidth="60.0" text="Browse" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="20.0" />
+                        <Button layoutX="76.0" layoutY="17.0" mnemonicParsing="false" onAction="#onBrowseDirectoryAction" prefWidth="60.0" text="Browse" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="20.0" />
                         <TextField fx:id="directory" layoutX="145.0" layoutY="17.0" prefHeight="25.0" prefWidth="420.0" AnchorPane.leftAnchor="160.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
                      </children></AnchorPane>
                </children>
             </Pane>
             <CheckBox layoutX="14.0" layoutY="60.0" mnemonicParsing="false" text="Include subfolders" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="60.0" />
-            <Button onAction="#onRunAction" layoutX="27.0" layoutY="121.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="RUN" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="120.0" />
-            <TextField fx:id="consoleWindow" layoutX="22.0" layoutY="492.0" prefHeight="100.0" prefWidth="556.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
-            <Label layoutX="20.0" layoutY="220.0" prefHeight="17.0" prefWidth="74.0" text="Files found:" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="220.0" />
-            <TextField fx:id="filesFound" layoutX="85.0" layoutY="216.0" />
+            <Button layoutX="27.0" layoutY="121.0" mnemonicParsing="false" onAction="#onRunAction" prefHeight="60.0" prefWidth="60.0" text="RUN" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="120.0" />
          </children>
       </AnchorPane>
   </children>

@@ -4,7 +4,6 @@ import com.drew.imaging.ImageMetadataReader;
 import com.drew.imaging.ImageProcessingException;
 import com.drew.metadata.Metadata;
 import com.drew.metadata.exif.ExifSubIFDDirectory;
-import javafx.stage.Window;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
@@ -13,15 +12,15 @@ import java.io.IOException;
 import java.util.Date;
 import java.util.TimeZone;
 
-public class PictureRename extends Window {
+public class PictureRename {
 
-    public static void pictureRename(File dir) throws IOException {
+    public String pictureRename(File dir) throws IOException {
 
         System.out.println(dir);
         // List the images in current directory
         File[] images = getPictures(dir);
 
-        if (images.length==0) //TODO tagasta info konsooliaknasse
+        if (images.length==0) return "No pictures found in current directory!";
 
         // Rename images
         renameImage(images);
@@ -32,9 +31,11 @@ public class PictureRename extends Window {
 
         //Delete duplicate pictures in Bad Files folder
         deleteDuplicatesInBadFiles();
+
+        return "Found " + images.length;
     }
 
-    private static void deleteDuplicatesInBadFiles() {
+    private  void deleteDuplicatesInBadFiles() {
         String directoryName = "Bad files";
         File theDir = new File(directoryName);
         // Create a directory for the pictures without metadata, if the director does not already exist
@@ -47,7 +48,7 @@ public class PictureRename extends Window {
         }
     }
 
-    private static void renameImage(File[] images) throws IOException {
+    private  void renameImage(File[] images) throws IOException {
         for (int i = 0; i < images.length; i++) {
             File image = images[i];
 
@@ -85,7 +86,7 @@ public class PictureRename extends Window {
         }
     }
 
-    private static void throwFileInFolder(File image) {
+    private void throwFileInFolder(File image) {
         String directoryName = "Bad files";
         File theDir = new File(directoryName);
         // Create a directory for the pictures without metadata, iff the directory does not already exist
@@ -129,7 +130,7 @@ public class PictureRename extends Window {
         }
     }
 
-    private static void deleteDuplicatePictures(File[] images) {
+    private void deleteDuplicatePictures(File[] images) {
         for (int x = 0; x < images.length; x++) {
             for (int y = x + 1; y < images.length; y++) {
                 if (CompareFiles(images[x], images[y])) images[y].delete();
@@ -137,15 +138,15 @@ public class PictureRename extends Window {
         }
     }
 
-    private static String addExtentsion(String newname, String imageType) {
+    private String addExtentsion(String newname, String imageType) {
         return newname + "." + imageType;
     }
 
-    private static boolean checkIfNamesMatch(String originalName, String newnameWithExtentsion) {
+    private boolean checkIfNamesMatch(String originalName, String newnameWithExtentsion) {
         return originalName.equals(newnameWithExtentsion);
     }
 
-    private static File renameIfNameExists(String originalName, String newnameWithExtentsion, String newname, String imageType, int counter) {
+    private File renameIfNameExists(String originalName, String newnameWithExtentsion, String newname, String imageType, int counter) {
         File image = new File(newnameWithExtentsion);
 
         while (image.exists()) {
@@ -173,7 +174,7 @@ public class PictureRename extends Window {
         return image;
     }
 
-    private static File[] getPictures(File curDir) {
+    private File[] getPictures(File curDir) {
         File[] images = curDir.listFiles(new FilenameFilter() {
             public boolean accept(File dir, String name) {
                 return name.toLowerCase().endsWith(".jpg") ||
@@ -185,7 +186,7 @@ public class PictureRename extends Window {
         return images;
     }
 
-    private static boolean CompareFiles(File x, File y) {
+    private boolean CompareFiles(File x, File y) {
         boolean isTwoEqual = false;
         try {
             isTwoEqual = FileUtils.contentEquals(x, y);
@@ -195,7 +196,7 @@ public class PictureRename extends Window {
         return isTwoEqual;
     }
 
-    private static String getMonthNumber(String s) {
+    private String getMonthNumber(String s) {
         String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
         String[] monthsInNumbers = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"};
         int index = -1;
@@ -207,7 +208,7 @@ public class PictureRename extends Window {
         return monthsInNumbers[index];
     }
 
-    private static String readPictureTakenTime(File image) {
+    private String readPictureTakenTime(File image) {
         try {
             Metadata metadata = ImageMetadataReader.readMetadata(image);
             ExifSubIFDDirectory directory = metadata.getFirstDirectoryOfType(ExifSubIFDDirectory.class);
@@ -219,7 +220,7 @@ public class PictureRename extends Window {
         return null;
     }
 
-    private static String formatNewName(String takenTime) {
+    private String formatNewName(String takenTime) {
         StringBuilder newName = new StringBuilder();
         String[] splited = takenTime.split("\\s+");
         String[] splitedTime = splited[3].split(":");

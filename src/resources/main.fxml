@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
@@ -31,12 +32,17 @@
       </MenuBar>
       <AnchorPane fx:id="header" maxHeight="80.0" minHeight="80.0" prefHeight="80.0" prefWidth="600.0" style="-fx-background-color: gray;">
          <children>
-            <Button onAction="#onHomeAction" layoutX="534.0" layoutY="13.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="Home" textAlignment="JUSTIFY" wrapText="true" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+            <Button layoutX="534.0" layoutY="13.0" mnemonicParsing="false" onAction="#onHomeAction" prefHeight="60.0" prefWidth="60.0" text="Home" textAlignment="JUSTIFY" wrapText="true" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
          </children>
       </AnchorPane>
       <AnchorPane prefHeight="574.0" prefWidth="600.0">
          <children>
           <StackPane fx:id="holder" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <AnchorPane layoutY="406.0" prefHeight="100.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0">
+               <children>
+                  <TextArea fx:id="consoleWindow" prefHeight="100.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
   </children>

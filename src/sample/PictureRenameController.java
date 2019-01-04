@@ -14,12 +14,6 @@ public class PictureRenameController extends Window {
     @FXML
     private TextField directory;
 
-    @FXML
-    private TextField filesFound;
-
-    @FXML
-    public static String consoleWindow;
-
     public void onBrowseDirectoryAction(ActionEvent actionEvent) {
         File dir = new DirectoryChooser().showDialog(this);
         directory.setText(dir.getAbsolutePath());
@@ -28,6 +22,7 @@ public class PictureRenameController extends Window {
 
     public void onRunAction(ActionEvent actionEvent) throws IOException {
         File dir = new File(directory.getText());
-        PictureRename.pictureRename(dir);
+        PictureRename pr = new PictureRename();
+        MainController.consoleWindow.setText(pr.pictureRename(dir));
     }
 }
