@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainWindowController">
+  <children>
+      <AnchorPane prefHeight="600.0" prefWidth="600.0">
+         <children>
+          <Button maxHeight="60.0" maxWidth="60.0" minHeight="60.0" minWidth="60.0" mnemonicParsing="false" onAction="#onRenamePicturesAction" prefHeight="60.0" prefWidth="60.0" text="Picture Rename" textAlignment="CENTER" textOverrun="CLIP" wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Button>
+            <Button layoutX="81.0" layoutY="14.0" maxHeight="60.0" maxWidth="60.0" minHeight="60.0" minWidth="60.0" mnemonicParsing="false" onAction="#onMallAction" prefHeight="60.0" prefWidth="60.0" text="Mall" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="20.0">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+  </children>
+</StackPane>
