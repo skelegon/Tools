@@ -23,6 +23,6 @@ public class PictureRenameController extends Window {
     public void onRunAction(ActionEvent actionEvent) throws IOException {
         File dir = new File(directory.getText());
         PictureRename pr = new PictureRename();
-        MainController.consoleWindow.setText(pr.pictureRename(dir));
+        //MainController.consoleWindow.setText(pr.pictureRename(dir));
     }
 }

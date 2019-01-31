@@ -1,10 +1,8 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -23,9 +21,9 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
 
         Pane mainPane = (Pane) loader.load(
-            getClass().getResourceAsStream(
-                Navigator.MAIN
-            )
+                getClass().getResourceAsStream(
+                        Navigator.MAIN
+                )
         );
 
         MainController mainController = loader.getController();

@@ -9,19 +9,34 @@ import javafx.scene.layout.StackPane;
 public class MainController {
 
     @FXML
-    private StackPane holder;
+    public StackPane holder;
 
     @FXML
-    public TextArea consoleWindow;
 
+    private TextArea consoleWindow;
+
+    public void setConsoleWindow(TextArea consoleWindow){
+        this.consoleWindow = consoleWindow;
+    }
+
+    public TextArea getConsoleWindow(){
+        return this.consoleWindow;
+    }
+
+    private final static String newline = "\n";
+
+
+    public void appendText(String text) {
+       getConsoleWindow().appendText(text+newline);
+    }
 
     public void setVista(Node node) {
         holder.getChildren().setAll(node);
-        consoleWindow.setText("Welcome!");
     }
 
-        @FXML
-        void onHomeAction (ActionEvent event) {
-            Navigator.loadVista(Navigator.MAIN_WINDOW);
+    @FXML
+    void onHomeAction (ActionEvent event) {
+        Navigator.loadVista(Navigator.MAIN_WINDOW);
+        appendText("Returning to main window");
     }
 }

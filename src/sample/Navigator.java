@@ -20,9 +20,9 @@ public class Navigator {
     public static void loadVista(String fxml) {
         try {
             mainController.setVista(
-                FXMLLoader.load(
-                    Navigator.class.getResource(fxml)
-                )
+                    FXMLLoader.load(
+                            Navigator.class.getResource(fxml)
+                    )
             );
         } catch (IOException e) {
             e.printStackTrace();

@@ -44,11 +44,11 @@ public class PictureRename {
         } else {
             File[] badImages = getPictures(theDir);
             if (badImages.length==0) // System.exit(0);
-            deleteDuplicatePictures(badImages);
+                deleteDuplicatePictures(badImages);
         }
     }
 
-    private  void renameImage(File[] images) throws IOException {
+    private  void renameImage(File[] images) {
         for (int i = 0; i < images.length; i++) {
             File image = images[i];
 
